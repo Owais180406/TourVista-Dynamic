@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="TourVista helps you discover beautiful domestic and international tours based on your country."
+    >
+
+    <title>TourVista — Discover More</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+<header class="site-header">
+    <div class="container nav-wrapper">
+
+        <a href="#home" class="brand">
+            <span class="brand-mark">T</span>
+
+            <span class="brand-text">
+                <strong>TourVista</strong>
+                <small>Travel differently</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#tours" class="nav-link">Tours</a>
+            <a href="#why-us" class="nav-link">Why Us</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <button
+            class="country-button"
+            id="countryButton"
+            type="button"
+            aria-label="Choose your country"
+        >
+            <span id="countryFlag">🌍</span>
+            <span id="countryName">Detecting...</span>
+            <span class="country-arrow">⌄</span>
+        </button>
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home">Home</a>
+        <a href="#tours">Tours</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#contact">Contact</a>
+    </div>
+</header>
+
+
+<main>
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero-section" id="home">
+
+    <div class="hero-image"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-copy">
+
+            <span class="eyebrow">
+                YOUR JOURNEY STARTS HERE
+            </span>
+
+            <h1>
+                Go somewhere
+                <em>worth remembering.</em>
+            </h1>
+
+            <p>
+                Discover beautiful places in your own country
+                and unforgettable destinations around the world.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#tours" class="button button-primary">
+                    Explore tours
+                    <span>→</span>
+                </a>
+
+                <button
+                    class="button button-light"
+                    id="heroCountryButton"
+                    type="button"
+                >
+                    <span>Choose country</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-note">
+            <span class="hero-note-line"></span>
+            <span id="heroCountryText">
+                Finding experiences near you...
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COUNTRY / MARKET
+========================= -->
+<section class="market-section">
+
+    <div class="container">
+
+        <div class="market-card">
+
+            <div class="market-left">
+
+                <span class="market-label">
+                    TRAVEL FROM
+                </span>
+
+                <div class="market-country">
+                    <span id="marketFlag">🌍</span>
+
+                    <div>
+                        <h2 id="marketCountryName">
+                            Detecting your country
+                        </h2>
+
+                        <p>
+                            Your domestic experiences are based
+                            on your selected country.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="market-stats">
+
+                <div class="market-stat">
+                    <strong id="domesticCount">0</strong>
+                    <span>Domestic tours</span>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="market-stat">
+                    <strong id="internationalCount">0</strong>
+                    <span>International tours</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TOURS
+========================= -->
+<section class="tours-section" id="tours">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="eyebrow">EXPLORE</span>
+
+                <h2>
+                    Find your next escape
+                </h2>
+            </div>
+
+            <p>
+                From nearby hidden gems to iconic destinations,
+                choose the experience that feels right for you.
+            </p>
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="search"
+                    id="tourSearch"
+                    placeholder="Search destinations..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <label class="filter-select">
+                <span>Type</span>
+
+                <select id="tourType">
+                    <option value="all">All tours</option>
+                    <option value="domestic">Domestic</option>
+                    <option value="international">International</option>
+                </select>
+            </label>
+
+
+            <label class="filter-select">
+                <span>Sort</span>
+
+                <select id="tourSort">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to high</option>
+                    <option value="price-high">Price: High to low</option>
+                    <option value="duration-short">Shortest duration</option>
+                    <option value="duration-long">Longest duration</option>
+                </select>
+            </label>
+
+        </div>
+
+
+        <!-- LOADING -->
+        <div class="loading-state" id="loadingState">
+            <div class="loading-spinner"></div>
+            <p>Finding beautiful places for you...</p>
+        </div>
+
+
+        <!-- ERROR -->
+        <div class="error-state hidden" id="errorState">
+
+            <div class="error-icon">!</div>
+
+            <h3>
+                We couldn't load the tours
+            </h3>
+
+            <p id="errorMessage">
+                Please check your connection and try again.
+            </p>
+
+            <button
+                class="button button-primary"
+                id="retryButton"
+                type="button"
+            >
+                Try again
+            </button>
+
+        </div>
+
+
+        <!-- DOMESTIC -->
+        <section class="tour-category" id="domesticSection">
+
+            <div class="category-heading">
+
+                <div>
+                    <span class="category-number">01</span>
+
+                    <div>
+                        <span class="category-label">
+                            CLOSE TO HOME
+                        </span>
+
+                        <h3>
+                            Domestic escapes
+                        </h3>
+                    </div>
+                </div>
+
+                <p id="domesticDescription">
+                    Explore unforgettable places within your country.
+                </p>
+
+            </div>
+
+            <div
+                class="tour-grid"
+                id="domesticTours"
+            ></div>
+
+            <div
+                class="empty-state hidden"
+                id="domesticEmpty"
+            >
+                <span>✦</span>
+                <h3>No domestic tours found</h3>
+                <p>Try changing your search or selecting another country.</p>
+            </div>
+
+        </section>
+
+
+        <!-- INTERNATIONAL -->
+        <section class="tour-category international-category" id="internationalSection">
+
+            <div class="category-heading">
+
+                <div>
+                    <span class="category-number">02</span>
+
+                    <div>
+                        <span class="category-label">
+                            BEYOND BORDERS
+                        </span>
+
+                        <h3>
+                            International journeys
+                        </h3>
+                    </div>
+                </div>
+
+                <p>
+                    Go farther and experience another part of the world.
+                </p>
+
+            </div>
+
+            <div
+                class="tour-grid"
+                id="internationalTours"
+            ></div>
+
+            <div
+                class="empty-state hidden"
+                id="internationalEmpty"
+            >
+                <span>✦</span>
+                <h3>No international tours found</h3>
+                <p>Try another search term.</p>
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+<section class="why-section" id="why-us">
+
+    <div class="container">
+
+        <div class="why-layout">
+
+            <div class="why-intro">
+
+                <span class="eyebrow">
+                    WHY TOURVISTA
+                </span>
+
+                <h2>
+                    Travel should feel
+                    <em>simple.</em>
+                </h2>
+
+                <p>
+                    We bring destinations, experiences and booking
+                    together in one straightforward travel platform.
+                </p>
+
+                <a href="#contact" class="text-link">
+                    Learn more about TourVista
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="feature-list">
+
+                <article class="feature-item">
+
+                    <span class="feature-number">01</span>
+
+                    <div>
+                        <h3>
+                            Local-first discovery
+                        </h3>
+
+                        <p>
+                            Your domestic tours adapt to the country
+                            you select, while international destinations
+                            remain available worldwide.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="feature-item">
+
+                    <span class="feature-number">02</span>
+
+                    <div>
+                        <h3>
+                            Curated experiences
+                        </h3>
+
+                        <p>
+                            Explore carefully presented tours with
+                            clear pricing, duration and destination details.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="feature-item">
+
+                    <span class="feature-number">03</span>
+
+                    <div>
+                        <h3>
+                            Straightforward booking
+                        </h3>
+
+                        <p>
+                            Select a tour, choose your travel date,
+                            enter your details and send your booking request.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="feature-item">
+
+                    <span class="feature-number">04</span>
+
+                    <div>
+                        <h3>
+                            Built for real travel
+                        </h3>
+
+                        <p>
+                            TourVista is designed to work across desktop,
+                            tablet and mobile devices.
+                        </p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+<section class="contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-panel">
+
+            <div class="contact-main">
+
+                <span class="eyebrow">
+                    PLAN YOUR JOURNEY
+                </span>
+
+                <h2>
+                    Your next adventure
+                    is closer than you think.
+                </h2>
+
+                <p>
+                    Browse our destinations, choose an experience
+                    and start planning your next trip with TourVista.
+                </p>
+
+                <a href="#tours" class="button button-light">
+                    Explore tours
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <div class="link-column">
+
+                    <span class="link-title">
+                        Explore
+                    </span>
+
+                    <a href="#home">Home</a>
+                    <a href="#tours">All Tours</a>
+                    <a href="#tours">Domestic Tours</a>
+                    <a href="#tours">International Tours</a>
+
+                </div>
+
+
+                <div class="link-column">
+
+                    <span class="link-title">
+                        Destinations
+                    </span>
+
+                    <a href="#tours">Dubai</a>
+                    <a href="#tours">Türkiye</a>
+                    <a href="#tours">Maldives</a>
+                    <a href="#tours">Switzerland</a>
+
+                </div>
+
+
+                <div class="link-column">
+
+                    <span class="link-title">
+                        Company
+                    </span>
+
+                    <a href="#why-us">Why TourVista</a>
+                    <a href="#contact">Travel Services</a>
+                    <a href="#contact">FAQ</a>
+                    <a href="#contact">Terms & Privacy</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <a href="#home" class="brand footer-brand">
+
+            <span class="brand-mark">T</span>
+
+            <span class="brand-text">
+                <strong>TourVista</strong>
+                <small>Travel differently</small>
+            </span>
+
+        </a>
+
+        <p>
+            Discover your country. Then discover the world.
+        </p>
+
+        <span class="footer-copy">
+            © <span id="currentYear"></span> TourVista. All rights reserved.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     COUNTRY MODAL
+========================= -->
+<div
+    class="modal hidden"
+    id="countryModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-overlay"
+        data-close-country-modal
+    ></div>
+
+    <div
+        class="modal-card country-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="countryModalTitle"
+    >
+
+        <button
+            class="modal-close"
+            id="closeCountryModal"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <span class="eyebrow">
+            YOUR HOME BASE
+        </span>
+
+        <h2 id="countryModalTitle">
+            Where are you travelling from?
+        </h2>
+
+        <p>
+            Select your country to personalize your domestic tours.
+        </p>
+
+        <div
+            class="country-list"
+            id="countryList"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     BOOKING MODAL
+========================= -->
+<div
+    class="modal hidden"
+    id="bookingModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-overlay"
+        data-close-booking-modal
+    ></div>
+
+    <div
+        class="modal-card booking-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bookingModalTitle"
+    >
+
+        <button
+            class="modal-close"
+            id="closeBookingModal"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <span class="eyebrow">
+            BOOK YOUR EXPERIENCE
+        </span>
+
+        <h2 id="bookingModalTitle">
+            Request your booking
+        </h2>
+
+        <div class="selected-tour-summary">
+
+            <div class="selected-tour-image">
+                <img
+                    id="bookingTourImage"
+                    src=""
+                    alt="Selected tour"
+                >
+            </div>
+
+            <div>
+                <span>Selected tour</span>
+                <strong id="bookingTourName">
+                    Tour
+                </strong>
+                <small id="bookingTourMeta">
+                    Destination
+                </small>
+            </div>
+
+        </div>
+
+
+        <form id="bookingForm" novalidate>
+
+            <input
+                type="hidden"
+                id="bookingTourId"
+                name="tourId"
+            >
+
+            <input
+                type="hidden"
+                id="bookingCountry"
+                name="country"
+            >
+
+
+            <div class="form-grid">
+
+                <div class="form-field">
+
+                    <label for="bookingName">
+                        Full name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bookingName"
+                        name="name"
+                        placeholder="Your full name"
+                        required
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="bookingEmail">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="bookingEmail"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                        maxlength="150"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="bookingPhone">
+                        Phone number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="bookingPhone"
+                        name="phone"
+                        placeholder="+92 300 0000000"
+                        required
+                        maxlength="30"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="bookingGuests">
+                        Guests
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bookingGuests"
+                        name="guests"
+                        min="1"
+                        max="50"
+                        value="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field form-field-full">
+
+                    <label for="bookingDate">
+                        Travel date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bookingDate"
+                        name="travelDate"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="button button-primary form-submit"
+                id="bookingSubmit"
+                type="submit"
+            >
+                Send booking request
+                <span>→</span>
+            </button>
+
+            <p class="form-note">
+                Your booking request will be securely sent to TourVista.
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+>
+    <span class="toast-icon">✓</span>
+
+    <div>
+        <strong id="toastTitle">
+            Done
+        </strong>
+
+        <p id="toastMessage">
+            Your request has been processed.
+        </p>
+    </div>
+
+</div>
+
+
+<script src="./script.js"></script>
+
+</body>
+</html>
